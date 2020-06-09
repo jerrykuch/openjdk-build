@@ -1,0 +1,6 @@
+[trusted]
+users = 1000
+groups = 1000, staff, wheel
+
+[ui]
+username = openjdk

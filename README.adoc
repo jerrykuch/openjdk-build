@@ -1,0 +1,57 @@
+The Dockerfile here was inspired by:
+
+https://github.com/reinhapa/openjdk-dev
+
+= OpenJDK development docker image
+
+Jerry Kuch <https://github.com/jerrykuch[@jerrykuch]>
+
+:project-full-path: jerrykuch/openjdk-dev
+
+:github-branch: master
+
+image:https://img.shields.io/badge/license-MIT-blue.svg["MIT License",link="https://github.com/{project-full-path}/blob/{github-branch}/LICENSE"]
+image:https://img.shields.io/docker/pulls/{project-full-path}.svg?maxAge=3600["Docker Pulls",link="https://hub.docker.com/r/{project-full-path}/"]
+image:https://img.shields.io/docker/stars/{project-full-path}.svg?maxAge=3600["Docker Stars",link="https://hub.docker.com/r/{project-full-path}/"]
+image:https://img.shields.io/travis/{project-full-path}/{github-branch}.svg?maxAge=3600["Build Status", link="https://travis-ci.org/{project-full-path}"]
+
+This project contains a Dockerfile to set up a docker image for a developer.
+
+== Build and usage
+In order to build the initial docker image use the following command:
+
+[source,bash]
+----
+docker build -t docker.io/reinhapa/openjdk-dev .
+----
+
+After the build finishes you can use the image right away using the following
+command:
+
+[source,bash]
+----
+docker run -it --name openjdk-dev -v <local_folder>:/openjdk docker.io/reinhapa/openjdk-dev
+----
+
+If you experience access problems due to SELinux you must flag your data
+directory using the following command:
+
+[source,bash]
+----
+chcon -Rt svirt_sandbox_file_t <local_folder>
+----
+
+After exiting the container, you can restart it as follows:
+
+[source,bash]
+----
+docker start -i openjdk-dev
+----
+
+== Contribute
+
+Contributions are always welcome.
+
+== License
+
+This project is licensed under the https://github.com/{project-full-path}/blob/{github-branch}/LICENSE[MIT license]
