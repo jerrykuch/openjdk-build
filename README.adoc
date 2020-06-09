@@ -30,7 +30,7 @@ command:
 
 [source,bash]
 ----
-docker run -it --name openjdk-dev -v <local_folder>:/openjdk docker.io/reinhapa/openjdk-dev
+docker run -it --name openjdk-dev -v <local_folder>:/openjdk docker.io/jerrykuch/openjdk-build
 ----
 
 If you experience access problems due to SELinux you must flag your data
@@ -45,7 +45,7 @@ After exiting the container, you can restart it as follows:
 
 [source,bash]
 ----
-docker start -i openjdk-dev
+docker start -i openjdk-build
 ----
 
 == Contribute
